@@ -8,8 +8,14 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 
 public class ReadyListener extends ListenerAdapter {
-    public static void main(String[] args) throws InterruptedException{
-        JDA kittenBot = JDABuilder.createDefault("MTQyNzEzMzk1ODczODU0Mjc1Mw.Gv-9_X.2ETsAOoSSQpdaSg-e-ETEf2CVkTovc2m92vN5k")
+
+    public static void main(String[] args) throws InterruptedException, IOException {
+        Properties properties = new Properties();
+        // CONFIG THE TOKEN
+        properties.load(new FileInputStream("token.properties"));
+        // USING OOP AT PROPERTIES
+        String token = properties.getProperty("BOT_TOKEN");
+        JDA kittenBot = JDABuilder.createDefault(token)
                 .addEventListeners(new ReadyListener())
                 .build();
 
@@ -20,9 +26,31 @@ public class ReadyListener extends ListenerAdapter {
         kittenBot.awaitReady();
 
     }
-       @Override
-               public void messageListener(@NotNull MessageReceivedEvent event)
-       {
+
+    @Override
+    public void onMessageReceived(@NotNull MessageReceivedEvent event) {
+        super.onMessageReceived(event);
+        // ADD NEW FILE
+        // IF RIGHT FUNCTIONS BUT DID NOT WORK, TRY IF/ELSE OR TRY/CATCH METHOD
+        if (event.getMessage().getContentRaw().startsWith("!wiwiwi")) {
+            File catWiwiwi = new File("763289836879229217.jpeg");
+
+            if (catWiwiwi.exists()) {
+                FileUpload fileUpload = FileUpload.fromData(catWiwiwi);
+
+                if (event.getAuthor().isBot()) return;
+                event.getChannel().sendMessage("Wiwiwi is onReady, say hi to her...")
+                        .addFiles(fileUpload)
+                        .queue();
+
+            } else if (!catWiwiwi.exists()) {
+                System.out.println("Image not Found 404");
+
+            } else {
+                System.out.println("Bad respond, try again");
+            }
+
+        }
 
        }
 }
