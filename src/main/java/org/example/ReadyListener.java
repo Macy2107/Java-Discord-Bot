@@ -17,6 +17,7 @@ public class ReadyListener extends ListenerAdapter {
         String token = properties.getProperty("BOT_TOKEN");
         JDA kittenBot = JDABuilder.createDefault(token)
                 .addEventListeners(new ReadyListener())
+                .enableIntents(GatewayIntent.DIRECT_MESSAGES)
                 .build();
 
         // RUN THE API
