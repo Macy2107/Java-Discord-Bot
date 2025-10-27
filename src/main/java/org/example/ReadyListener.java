@@ -20,6 +20,11 @@ public class ReadyListener extends ListenerAdapter {
                 .enableIntents(GatewayIntent.DIRECT_MESSAGES)
                 .build();
 
+        String spotify = properties.getProperty("MY_SPOTIFY");
+        if (spotify.isEmpty()) {
+            kittenBot.awaitReady();
+            kittenBot.getPresence().setPresence(OnlineStatus.IDLE, Activity.playing("Spotify"));
+        }
         // RUN THE API
         // OUTPUT
         kittenBot.awaitStatus(JDA.Status.CONNECTED);
