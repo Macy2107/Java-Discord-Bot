@@ -5,18 +5,18 @@ import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.events.message.react.MessageReactionAddEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.requests.GatewayIntent;
+import net.dv8tion.jda.api.utils.FileUpload;
+import org.apache.commons.collections4.FunctorException;
 import org.jetbrains.annotations.NotNull;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 
 public class ReadyListener extends ListenerAdapter {
 
-    /**
-     * Runs the JDA bot with the given token.
-     *
-     * @param args the command line arguments
-     * @throws InterruptedException if the thread is interrupted while waiting for the bot to become ready
-     * @throws IOException if there is an IO error while reading the token from the file
-     * @throws FunctorException if there is an error while creating the JDA instance
-     */
     public static void main(String[] args) throws InterruptedException, IOException, FunctorException {
         Properties properties = new Properties();
         // CONFIG THE TOKEN
@@ -28,11 +28,6 @@ public class ReadyListener extends ListenerAdapter {
                 .enableIntents(GatewayIntent.DIRECT_MESSAGES)
                 .build();
 
-        String spotify = properties.getProperty("MY_SPOTIFY");
-        if (spotify.isEmpty()) {
-            kittenBot.awaitReady();
-            kittenBot.getPresence().setPresence(OnlineStatus.IDLE, Activity.playing("Spotify"));
-        }
         // RUN THE API
         // OUTPUT
         kittenBot.awaitStatus(JDA.Status.CONNECTED);

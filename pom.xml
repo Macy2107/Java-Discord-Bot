@@ -15,10 +15,9 @@
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>net.dv8tion</groupId>
-            <!-- LIKE VARIABLE -->
+            <!-- JDA CONFIGURATION -->
             <artifactId>JDA</artifactId>
             <version>6.0.0</version>
         </dependency>
