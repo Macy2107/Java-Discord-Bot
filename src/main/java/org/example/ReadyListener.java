@@ -9,7 +9,15 @@ import org.jetbrains.annotations.NotNull;
 
 public class ReadyListener extends ListenerAdapter {
 
-    public static void main(String[] args) throws InterruptedException, IOException {
+    /**
+     * Runs the JDA bot with the given token.
+     *
+     * @param args the command line arguments
+     * @throws InterruptedException if the thread is interrupted while waiting for the bot to become ready
+     * @throws IOException if there is an IO error while reading the token from the file
+     * @throws FunctorException if there is an error while creating the JDA instance
+     */
+    public static void main(String[] args) throws InterruptedException, IOException, FunctorException {
         Properties properties = new Properties();
         // CONFIG THE TOKEN
         properties.load(new FileInputStream("token.properties"));
