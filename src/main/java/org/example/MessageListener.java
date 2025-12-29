@@ -56,23 +56,6 @@ public class MessageListener extends ListenerAdapter {
             event.getChannel().sendMessage("heheheheehehe").queue();
         }
 
-        // FOR SPECIFIC USERS ONLY
-        if (messageSent.equalsIgnoreCase("I am NhiNhi")) {
-            event.getChannel().sendMessage("wiwiwiwiiii\n" + "Tặng chị đẹp một đoá hồng ✨\uD83C\uDF39").queue();
-        }
-
-        if (messageSent.equalsIgnoreCase("I am Torantaito")) {
-            event.getChannel().sendMessage("Hoii Toran uwu").queue();
-        }
-
-        if (messageSent.equalsIgnoreCase("I am Torantaito")) {
-            event.getChannel().sendMessage("wiwiwiwiwi\n" + "You deserve the best today my little gurl uwu\n" + "✨🫶💐").queue();
-        }
-
-        if (messageSent.equalsIgnoreCase("I am cashion4657")) {
-            event.getChannel().sendMessage("wiwiwiwiwi\n" + " This flower was sent to a handsome and wonderful man todayy " + "https://media.tenor.com/20-1MnnshhsAAAAM/flower-cat.gif").queue();
-        }
-
         if (messageSent.equalsIgnoreCase("wiwiwi")) {
             event.getChannel().sendMessage("wiwiwi\n" + "https://media.tenor.com/G3lM9_qGe9IAAAAe/wiwiwi-cat-kitty.png" ).queue();
         }
