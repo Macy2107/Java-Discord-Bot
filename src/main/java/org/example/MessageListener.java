@@ -72,10 +72,6 @@ public class MessageListener extends ListenerAdapter {
             event.getChannel().sendMessage("uwu nothingg, I'm looking at the beautiful face thru this screen\n" + "https://i.pinimg.com/736x/26/6e/3f/266e3f3b18bf682a9ada0900d3ac7f29.jpg").queue();
         }
 
-        if (messageSent.equalsIgnoreCase("I love u")) {
-            event.getChannel().sendMessage("I love u too uwu\n").queue();
-        }
-
         if (messageSent.equalsIgnoreCase("Thank you")) {
             event.getChannel().sendMessage("No problem uwu\n" + "https://media.tenor.com/_UaFpyE0SPYAAAAM/praying-cat.gif").queue();
         }
